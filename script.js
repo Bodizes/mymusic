@@ -1,25 +1,13 @@
 const musicas = [
     {
-        nome: "Música 1",
-        arquivo: "musicas/musica1.mp3"
-    },
-
-    {
-        nome: "Música 2",
-        arquivo: "musicas/musica2.mp3"
-    },
-
-    {
-        nome: "Música 3",
-        arquivo: "musicas/musica3.mp3"
+        nome: "Minha música",
+        arquivo: "musicas/minha-musica.mp3"
     }
 ];
-
 
 const lista = document.getElementById("musicList");
 const player = document.getElementById("audioPlayer");
 const titulo = document.getElementById("musicTitle");
-
 
 musicas.forEach((musica) => {
 
@@ -33,15 +21,10 @@ musicas.forEach((musica) => {
     `;
 
     item.addEventListener("click", () => {
-
         player.src = musica.arquivo;
-
         titulo.textContent = musica.nome;
-
         player.play();
-
     });
 
     lista.appendChild(item);
-
 });
