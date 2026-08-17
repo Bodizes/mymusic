@@ -6,96 +6,217 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: #fff5f9;
+    background: #fff7fa;
     color: #3d3036;
 }
 
-/* CABEÇALHO */
-
 header {
     text-align: center;
-    padding: 35px 20px 25px;
-    background: #ffffff;
-    border-bottom: 1px solid #f9dce8;
+    padding: 32px 20px 25px;
+    background: white;
+    border-bottom: 1px solid #f8dce7;
 }
 
 header h1 {
     margin: 0;
-    font-size: 32px;
-    color: #e85d96;
+    color: #e95791;
+    font-size: 30px;
 }
 
 header p {
-    margin-top: 8px;
-    color: #a77d8d;
+    color: #a47c8b;
+    margin-bottom: 0;
 }
-
-/* CONTEÚDO */
 
 main {
     width: 92%;
-    max-width: 700px;
-    margin: 30px auto;
+    max-width: 650px;
+    margin: 28px auto;
 }
 
 /* PLAYER */
 
 .player {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 28px;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 30px;
     text-align: center;
-    box-shadow: 0 12px 35px rgba(232, 93, 150, 0.12);
+    box-shadow: 0 15px 40px rgba(226, 83, 140, 0.12);
 }
 
-.cover {
-    width: 190px;
-    height: 190px;
-    margin: auto;
-    border-radius: 30px;
+/* CAPA */
 
-    background: linear-gradient(
-        135deg,
-        #ff9fc5,
-        #f0629b
-    );
+.cover {
+    width: 210px;
+    height: 210px;
+    margin: auto;
+
+    border-radius: 32px;
+
+    background:
+        radial-gradient(circle at 30% 25%, #ffd5e5 0 8%, transparent 9%),
+        radial-gradient(circle at 75% 70%, #ff8db8 0 12%, transparent 13%),
+        linear-gradient(135deg, #ffb6d2, #e95791);
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    font-size: 75px;
-    box-shadow: 0 15px 30px rgba(232, 93, 150, 0.25);
+    box-shadow:
+        0 20px 40px rgba(226, 83, 140, 0.28);
+
+    position: relative;
+    overflow: hidden;
 }
+
+.cover::before {
+    content: "";
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    position: absolute;
+}
+
+.cover-note {
+    color: white;
+    font-size: 75px;
+    font-weight: bold;
+    z-index: 2;
+
+    text-shadow: 0 5px 15px rgba(150, 40, 85, 0.25);
+}
+
+/* NOME */
 
 .player h2 {
-    margin: 22px 0 18px;
+    margin: 22px 0 15px;
     font-size: 21px;
-    color: #4a3540;
+    color: #493641;
 }
 
+/* BARRA */
+
+.progress-area {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #a27b89;
+    font-size: 12px;
+}
+
+#progress {
+    flex: 1;
+    height: 5px;
+    appearance: none;
+    border-radius: 10px;
+    background: #f7d9e5;
+    cursor: pointer;
+}
+
+#progress::-webkit-slider-thumb {
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #e95791;
+    cursor: pointer;
+}
+
+#progress::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border: none;
+    border-radius: 50%;
+    background: #e95791;
+    cursor: pointer;
+}
+
+/* BOTÕES */
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 22px;
+}
+
+.control-button,
+.play-button {
+    border: none;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.2s;
+}
+
+.control-button {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: #ffe3ed;
+    color: #df4e89;
+
+    font-size: 20px;
+}
+
+.play-button {
+    width: 68px;
+    height: 68px;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #ff7eb0, #df4e89);
+
+    color: white;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 10px 25px rgba(223, 78, 137, 0.3);
+}
+
+.control-button:hover {
+    transform: scale(1.08);
+    background: #ffd4e4;
+}
+
+.play-button:hover {
+    transform: scale(1.08);
+}
+
+/* ESCONDER PLAYER NATIVO */
+
 audio {
-    width: 100%;
-    accent-color: #e85d96;
+    display: none;
 }
 
 /* LISTA */
 
 .library {
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
 .library > h2 {
+    color: #df4e89;
     margin-left: 5px;
-    color: #e85d96;
 }
 
-/* MÚSICAS */
-
 .song {
-    background: #ffffff;
-    padding: 17px;
-    margin: 12px 0;
+    background: white;
+
+    padding: 15px;
+    margin: 10px 0;
+
     border-radius: 18px;
 
     display: flex;
@@ -104,9 +225,9 @@ audio {
 
     cursor: pointer;
 
-    border: 1px solid #f9dce8;
+    border: 1px solid #f8dce7;
 
-    box-shadow: 0 5px 18px rgba(232, 93, 150, 0.07);
+    box-shadow: 0 5px 18px rgba(226, 83, 140, 0.07);
 
     transition: 0.2s;
 }
@@ -114,20 +235,26 @@ audio {
 .song:hover {
     transform: translateY(-2px);
     background: #fff0f6;
-    border-color: #f5a6c5;
+}
+
+.song.active {
+    border-color: #ef75a5;
+    background: #fff0f6;
 }
 
 .song-icon {
-    width: 42px;
-    height: 42px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 43px;
+    height: 43px;
 
     border-radius: 14px;
 
-    background: #ffe0ec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #ffe0eb;
+
+    color: #df4e89;
 
     font-size: 21px;
 }
@@ -137,13 +264,7 @@ audio {
     color: #513b46;
 }
 
-/* CELULAR */
-
 @media (max-width: 600px) {
-
-    header {
-        padding: 28px 15px 22px;
-    }
 
     header h1 {
         font-size: 27px;
@@ -151,26 +272,23 @@ audio {
 
     main {
         width: 94%;
-        margin-top: 20px;
     }
 
     .player {
-        padding: 22px;
-        border-radius: 24px;
+        padding: 25px 18px;
     }
 
     .cover {
-        width: 155px;
-        height: 155px;
-        font-size: 60px;
-        border-radius: 25px;
+        width: 175px;
+        height: 175px;
+        border-radius: 27px;
     }
 
-    .player h2 {
-        font-size: 18px;
+    .cover-note {
+        font-size: 62px;
     }
 
-    .song {
-        padding: 14px;
+    .controls {
+        gap: 18px;
     }
 }
