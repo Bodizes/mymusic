@@ -11,30 +11,70 @@
 
 <body>
 
-    <header>
-        <h1>🎵 Meu Player</h1>
-        <p>Minha coleção de músicas</p>
-    </header>
+<header>
+    <h1>🎵 Meu Player</h1>
+    <p>Minha coleção de músicas</p>
+</header>
 
-    <main>
+<main>
 
-        <section class="player">
+    <section class="player">
 
-            <div class="cover">
-                🎵
-            </div>
+        <div class="cover">
+            <div class="cover-note">♫</div>
+        </div>
 
-            <h2 id="musicTitle">Nenhuma música selecionada</h2>
+        <h2 id="musicTitle">Minha música</h2>
 
-            <audio id="audioPlayer" controls></audio>
+        <div class="progress-area">
+            <span id="currentTime">0:00</span>
 
-        </section>
+            <input
+                type="range"
+                id="progress"
+                min="0"
+                max="100"
+                value="0"
+            >
+
+            <span id="duration">0:00</span>
+        </div>
+
+        <div class="controls">
+
+            <button id="previousButton" class="control-button">
+                ⏮
+            </button>
+
+            <button id="playButton" class="play-button">
+                ▶
+            </button>
+
+            <button id="nextButton" class="control-button">
+                ⏭
+            </button>
+
+        </div>
+
+        <audio id="audioPlayer"></audio>
+
+    </section>
 
 
-        <section class="library">
+    <section class="library">
 
-            <h2>🎶 Músicas</h2>
+        <h2>🎶 Músicas</h2>
 
+        <div id="musicList"></div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
             <div id="musicList"></div>
 
         </section>
